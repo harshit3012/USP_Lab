@@ -1,13 +1,25 @@
-#! /bin/sh
+#!/bin/sh
 
-# Shell program to accept two parameters perform File Test and display their attributes
+# Shell program to accept two filenames perform File Test and display their attributes
 
-if test $# -eq 0
-then
-echo "Usage : $0 pattern file" 
-elif test $# -eq 2
-then
-grep "$1" $2 || echo "$1 not found in $2"
+if test $# -eq 0; then
+    echo "Usage : $0 file1 file2" 
+    echo "The number of arguments are $#"
+elif [ $# -eq 2 ]; then
+    if [ -f $1 ]; then
+        echo "Argument 1 is a File"
+        echo "Attributes of file 1"
+        ls -l $1
+    else
+        echo "Argument 1 is not a File"
+    fi
+    if [ -f $2 ]; then
+        echo "Argument 2 is a File"
+        echo "Attributes of file 2"
+        ls -l $1
+    else
+        echo "Argument 2 is not a File"
+    fi
 else
-echo "You didnt enter any two arguments"
+    echo "Give only two arguments"
 fi
