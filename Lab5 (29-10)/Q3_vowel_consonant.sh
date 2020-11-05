@@ -15,5 +15,6 @@ case $ch in
 	O) echo "$yes";;
 	u) echo "$yes";;
 	U) echo "$yes";;
+    [0-9]) echo "Entered a number";;
 	*) echo "It is a consonant.";;
 esac
